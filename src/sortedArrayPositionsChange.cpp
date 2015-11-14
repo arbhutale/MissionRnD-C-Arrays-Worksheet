@@ -10,10 +10,53 @@ ERROR CASES: Return NULL for invalid Inputs.
 
 NOTES:
 */
-
 #include <stdio.h>
+#include<conio.h>
+#include <stdio.h>
+#include<conio.h>
+/*void swap(int a, int b)
+{
 
+int temp;
+temp = a;
+a = b;
+b = temp;
+//printf("a=%d", a);
+//printf("b=%d", b);
+return ;
+}*/
 void * sortedArrayPositionsChange(int *Arr, int len)
 {
-	return NULL;
+	if (Arr == NULL)
+		return NULL;
+	if (len < 0)
+		return NULL;
+	int i, j, k = 0, l = 0, temp;
+	for (i = 0; i < len; i++)
+	{
+		//printf("hi");
+		if (Arr[i] >Arr[i + 1])
+		{
+
+			k = i;
+			//printf("k-%d\n", k);
+			break;
+		}
+	}
+	for (j = k + 1; j <len - 1; j++)
+	{
+		//printf("hi");
+		if (Arr[j] > Arr[j + 1])
+		{
+			l = j + 1;
+
+			//printf("l=%d\n", l);
+			break;
+		}
+	}
+	temp = Arr[k];
+	Arr[k] = Arr[l];
+	Arr[l] = temp;
+	/*printf("%d\n",Arr[k]);
+	printf("%d\n",Arr[l]);*/
 }
