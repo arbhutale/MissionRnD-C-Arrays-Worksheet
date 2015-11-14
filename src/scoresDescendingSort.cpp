@@ -13,13 +13,52 @@ ERROR CASES: Return NULL for invalid Inputs.
 NOTES:
 */
 
-#include <stdio.h>
-
-struct student {
+#include<stdio.h>
+struct student
+{
 	char name[10];
 	int score;
 };
 
-void * scoresDescendingSort(struct student *students, int len) {
-	return NULL;
+void sort(int m, struct student  *x)
+{
+	int i, j, t;
+
+
+	for (i = 1; i <= m - 1; i++)
+		for (j = 1; j <= m - i; j++)
+			if (x[j - 1].score <= x[j].score)
+			{
+				t = x[j - 1].score;
+				x[j - 1].score = x[j].score;
+				x[j].score = t;
+				char	*str1 = x[j - 1].name;
+				*x[j - 1].name = *x[j].name;
+				*x[j].name = *str1;
+			}
+}
+void * scoresDescendingSort(struct student *students, int len)
+{
+	int i;
+	if (students[0].name == NULL)
+		return NULL;
+	if (len < 0)
+		return NULL;
+	for (i = 0; i < len; i++)
+	{
+		if (students[i].score == NULL)
+		{
+			return NULL;
+			break;
+		}
+	}
+	for (i = 0; i < len; i++)
+	
+	sort(len, students);
+	/*for (i = 0; i < len; i++)
+	{
+	printf("%s", students[i].name);
+	printf("%d", students[i].score);
+	}*/
+
 }
